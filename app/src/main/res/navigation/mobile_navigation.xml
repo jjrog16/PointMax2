@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation.xml"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.pointmax2.ui.home.HomeFragment"
+        android:label="@string/title_home" />
+    <fragment
+        android:id="@+id/navigation_wallet"
+        android:name="com.example.pointmax2.ui.wallet.WalletFragment"
+        android:label="@string/title_wallet" >
+        <action
+            android:id="@+id/action_navigation_wallet_to_navigation_addCustomCardFragment"
+            app:destination="@id/navigation_addCustomCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_addCustomCardFragment"
+        android:name="com.example.pointmax2.ui.add_custom_card.AddCustomCardFragment"
+        tools:layout="@layout/fragment_add_custom_card" >
+        <action
+            android:id="@+id/action_navigation_addCustomCardFragment_to_navigation_wallet"
+            app:destination="@id/navigation_wallet" />
+        <argument
+            android:name="cardItem"
+            app:argType="com.example.pointmax2.data.database.entities.CardItem" />
+    </fragment>
+</navigation>
